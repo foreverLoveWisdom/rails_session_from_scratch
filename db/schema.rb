@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_25_033608) do
+ActiveRecord::Schema.define(version: 2020_06_25_043159) do
 
   create_table "sessions", force: :cascade do |t|
     t.string "session_identifier"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["session_identifier"], name: "index_sessions_on_session_identifier"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_hash"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email"
   end
 
 end
